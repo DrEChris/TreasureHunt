@@ -94,20 +94,20 @@ public class Location {
 
         public void move (Location place, String text) {
             if (text.equals("can't")) {
-                inventory.showText.show("You can't go that way.");   
+                System.out.println("You can't go that way.");   
             }
             else if(text.length() > 5){
                 if(text.substring(0, 5).equals("climb")){
                     this.climb(text.substring(6));
                 }
                 else {
-                    inventory.showText.show(text);
+                    System.out.println(text);
                     inventory.gps.navigate(place);
                     place.activate(inventory);
                 }
             }
             else {
-                inventory.showText.show(text);
+                System.out.println(text);
                 inventory.gps.navigate(place);
                 place.activate(inventory);
             }
@@ -122,8 +122,8 @@ public class Location {
             
             //location description
             //System.out.println("You are " + name);
-            inventory.showText.show("\n");
-            inventory.showText.show(description);
+            System.out.println("\n");
+            System.out.println(description);
             
             //event checker
             for(Event x : eventArray){
