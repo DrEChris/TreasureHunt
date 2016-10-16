@@ -231,11 +231,13 @@ public class TreasureHunt {
         woodsEdge.makeWest(road, "You head out of the woods, towards the road.");
         woodsEdge.makeEast(deepWoods, "You head deeper into the woods.");
         woodsEdge.makeException("road", "west");
+        woodsEdge.makeEception("woods", "east");
         //Deep Woods
         deepWoods.makeNorth(woodsLost, "You head deeper into the woods.");
         deepWoods.makeSouth(woodsLost, "You head deeper into the woods");
         deepWoods.makeWest(woodsEdge, "You head towards the light and the edge of the woods.");
         deepWoods.makeEast(woodsLost, "You head deeper into the woods.");
+        deepWoods.makeException("woods", "east");
         //Woods Lost
         woodsLost.makeNorth(woodsLost, "You head in the direction you think is North.");
         woodsLost.makeSouth(woodsLost, "You head in the direction you think is South.");
@@ -244,6 +246,7 @@ public class TreasureHunt {
         woodsLost.makeUp(treeTops, "climb tree");
         woodsLost.makeClimb("tree", treeTops, 1.0);
         woodsLost.makeException("tree", "up");
+        woodsLost.makeException("woods", "east");
         //Tree Tops
         treeTops.makeDown(woodsLost, "You climb back down into the woods.");
         treeTops.makeException("woods", "down");
@@ -270,7 +273,7 @@ public class TreasureHunt {
         waterfallTop.makeDown(waterfallTop, "There is no way you could get down those falls alive...");
         waterfallTop.makeException("cliffs", "north");
         //Mine Entrance
-        mineEntrance.makeSouth(mineEntrance, "The river blocks your way north and it is quite uncrossable.");
+        mineEntrance.makeSouth(mineEntrance, "The river blocks your way south and it is quite uncrossable.");
         mineEntrance.makeWest(brokenBridge, "You head west along the river.");
         mineEntrance.makeEast(mineEntrance, "You head down into the mine. \n"
                 + "There is a sign that say 'Mine under construction, please come back'");
@@ -401,7 +404,7 @@ public class TreasureHunt {
         Item wildFlowers = new Item("wild flowers", " bunch of pretty flowers.", 1, true, "none", "You"
                 + " stop to smell the flowers. \nHow nice.");
         
-        Item pinecones = new Item("pinecone", " nice large pinecone.", 1, true, "none", "You try to count the "
+        Item pinecones = new Item("pinecone", " nice large pinecone", 1, true, "none", "You try to count the "
                 + "nubs on the pinecone and get your hands sticky.");
         
         
