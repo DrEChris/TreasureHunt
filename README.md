@@ -6,7 +6,7 @@ Note: The code for this game is a work in progress.
       To do this simply download the 'TreasureHunt.jar' and 'TreasureHunt.bat' files.  Make sure to put them in the same folder in your computer.  Once downloaded, open the batch file (TreasureHunt.bat) and it will start the game.
       
       
-      In the future, extra content will be added, including a User Interface which will make the game accessable outside of the command prompt.
+In the future, extra content will be added, including a User Interface which will make the game accessable outside of the command prompt.
       
       
 This game is text based, so the computer will write messages to you and you will tyoe commands into the computer.
