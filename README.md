@@ -3,7 +3,9 @@ A text based adventure, with the goal of finding treasure.
 
 Note: The code for this game is a work in progress.
       At this time the only way to play the game is to open the .jar file through the command prompt window.
-      To do this simply download the 'TreasureHunt.jar' and 'TreasureHunt.bat' files.  Make sure to put them in the same folder in yur computer.  Once downloaded, open the batch file (TreasureHunt.bat) and it will start the game.
+      To do this simply download the 'TreasureHunt.jar' and 'TreasureHunt.bat' files.  Make sure to put them in the same folder in your computer.  Once downloaded, open the batch file (TreasureHunt.bat) and it will start the game.
+      
+      
       In the future, extra content will be added, including a User Interface which will make the game accessable outside of the command prompt.
       
       
