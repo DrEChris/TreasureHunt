@@ -414,9 +414,9 @@ public class Location {
         
         public void pickUp(String secondWord){
             if (secondWord.equals("empty")){
-                Scanner user_input = new Scanner (System.in);
+                //Scanner user_input = new Scanner (System.in);
                 inventory.display("What do you want to get?: ");
-                String user_command = user_input.nextLine();
+                String user_command = inventory.gui.getCommand();
                 secondWord = user_command.toLowerCase();
             }
             int itemSpot = -1;
