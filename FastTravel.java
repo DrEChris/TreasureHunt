@@ -34,11 +34,11 @@ public class FastTravel extends Event {
     @Override
     public void activate (Inventory inventory) {
         current = inventory.gps.presentLoc;
-        System.out.println(message);
+        inventory.display(message);
         
-        Scanner user_input = new Scanner (System.in);
-        System.out.print("yes or no: ");
-        String user_command = user_input.nextLine();
+        //Scanner user_input = new Scanner (System.in);
+        inventory.display("yes or no: ");
+        String user_command = inventory.gui.getCommand();
         switch (user_command.toLowerCase()){
             case "yes":
             case "y":
@@ -49,11 +49,11 @@ public class FastTravel extends Event {
             case "no":
             case "n":
             case "nope":
-                System.out.println(decline);
+                inventory.display(decline);
                 
                 break;
             default:
-                System.out.println("I don't understand");
+                inventory.display("I don't understand");
                 this.activate(inventory);
                 break;
         }

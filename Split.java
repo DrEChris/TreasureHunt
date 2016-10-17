@@ -28,7 +28,7 @@ public class Split extends Event {
     @Override
     public void activate(Inventory inventory){
         current = inventory.gps.presentLoc;
-        System.out.println(message);
+        inventory.display(message);
         event1.activate(inventory);
         event2.activate(inventory);
     }

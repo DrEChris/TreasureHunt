@@ -528,9 +528,7 @@ public class TreasureHunt {
         
        
         //Gameplay
-        UserFace gui = new UserFace();
-        Show showText = new Show(gui);
-        inventory.loadShow(showText);
+       
         inventory.gps.navigate(road);
         road.activate(inventory);
         

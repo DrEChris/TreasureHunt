@@ -14,11 +14,13 @@ import java.util.Map;
  * @author Christopher
  */
 public class Inventory extends Location {
-    public Show showText;
+    public THUI gui;
     
     
     public Inventory (String n, int num, String des, int eventNum, int capacity){
         super (n, num, des, eventNum, capacity);
+        gui = new THUI();
+        gui.setVisible(true);
     }
     
     public int wallet = 5;
@@ -32,20 +34,23 @@ public class Inventory extends Location {
     }
     
     public void checkInventory () {
-        System.out.println("Here is what you're carrying:");
-        System.out.println("You have " + this.wallet + " gold.");
+        display("Here is what you're carrying:");
+        display("You have " + this.wallet + " gold.");
         for(Item x : this.itemArray){
             if(!"empty".equals(x.name)){
-                System.out.println("You have a " + x.description);
+                display("You have a " + x.description);
             }
         }
         
-        
     }
     
-    public void loadShow(Show text){
-        this.showText = text;
+    public void display (String text) {
+        gui.outputDisp.append(text + "\n");
+        System.out.println(text);
     }
+    
+    
+    
     
     public class Monitor {
         public Location presentLoc;
@@ -65,6 +70,8 @@ public class Inventory extends Location {
             
             
         }
+        
+        
         
         
     }

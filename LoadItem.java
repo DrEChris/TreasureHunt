@@ -42,13 +42,13 @@ public class LoadItem extends Event {
     @Override
     public void activate(Inventory inventory){
         current = inventory.gps.presentLoc;
-        System.out.println(message);
+        inventory.display(message);
         boolean emptyBox = true;
         int count = 0;
         for(Item x : stash){
             if(x != empty){
                 emptyBox = false;
-                System.out.println("There is a " + x.name);
+                inventory.display("There is a " + x.name);
                 for(int i = 0; i < current.itemArray.length; i++){
                     if(current.itemArray[i].name.equals("empty")){
                         current.itemArray[i] = x;
@@ -64,15 +64,15 @@ public class LoadItem extends Event {
             count++;
         }
         if(emptyBox && coins <= 0){
-            System.out.println("The " + this.name + " is empty."); 
+            inventory.display("The " + this.name + " is empty."); 
         }
         else if(emptyBox){
-            System.out.println("You find " + this.coins + " gold coins.");
+            inventory.display("You find " + this.coins + " gold coins.");
             inventory.addGold(coins);
             coins = 0;
         }
         else if(coins > 0){
-            System.out.println("And there is " + this.coins + " gold coins.");
+            inventory.display("And there is " + this.coins + " gold coins.");
             inventory.addGold(coins);
             coins = 0;
         }

@@ -20,11 +20,11 @@ public class Event {
     public String message;
     public String trigger;
     public Location current;
-
+    public Set<String> aliasSet = new HashSet<>();
     /**
      *
      */
-    public Set<String> aliasSet = new HashSet<>();
+    
     
     public Event(String eventName, double eventOdds, String eventMessage, String eventTrigger) {
         name = eventName;
@@ -36,7 +36,7 @@ public class Event {
     
     public void activate (Inventory inventory) {
         current = inventory.gps.presentLoc;
-        System.out.println(message);
+        inventory.display(message);
     }
     
     public void changeOdds (double newOdds){

@@ -40,7 +40,7 @@ public class ChangeEvent extends Event {
         if(alterTrigger) {
             event.changeTrigger(newTrigger);
         }
-        System.out.println(message);
+        inventory.display(message);
         
     }
 }
