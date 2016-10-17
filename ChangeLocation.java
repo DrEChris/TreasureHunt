@@ -56,7 +56,7 @@ public class ChangeLocation extends Event {
                 this.changeMap();
                 break;
             default:
-                System.out.println("Type fail for change location.");
+                inventory.display("Type fail for change location.");
         }
     }
     
@@ -81,7 +81,7 @@ public class ChangeLocation extends Event {
                 }
                 break;
             default:
-                System.out.println("SubType Fail for change climb.");
+                target.inventory.display("SubType Fail for change climb.");
         }
         
     }
@@ -107,7 +107,7 @@ public class ChangeLocation extends Event {
                 target.makeDown(lLoc, lString);
                 break;
             default:
-                System.out.println("SubType fail in change map.");
+                target.inventory.display("SubType fail in change map.");
                 break;
         }
     }

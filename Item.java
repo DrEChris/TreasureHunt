@@ -43,8 +43,8 @@ public class Item {
         this.searchTrigger = where;
     }
     
-    public void defaultUse() {
-        System.out.println(pointlessUse);
+    public void defaultUse(Inventory inventory) {
+        inventory.display(pointlessUse);
     }
     
     public void use(Inventory inventory){
@@ -57,7 +57,7 @@ public class Item {
             }
         }
         if(!usefull){
-            this.defaultUse();
+            this.defaultUse(inventory);
         }
     }
     

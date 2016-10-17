@@ -42,25 +42,25 @@ public class Use extends Event {
                     if(current.itemCheck("empty")){
                         this.leaves(inventory);
                         item.hide(dropSpot);
-                        System.out.println(message);
+                        inventory.display(message);
                         outcome.activate(inventory);
                         break;
                     }
                     else {
-                        System.out.println("You can't use the " + item.name + " here. \n"
+                        inventory.display("You can't use the " + item.name + " here. \n"
                                 + "There are too many things already at this location.");
                         break;
                     }
                 }
                 else {
-                    System.out.println(message);
+                    inventory.display(message);
                     outcome.activate(inventory);
                     break;
                 }
             }
         }
         if (dontHave){
-            System.out.println("You don't have the " + item.name);
+            inventory.display("You don't have the " + item.name);
             
         }
     }

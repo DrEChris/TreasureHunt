@@ -2,11 +2,11 @@
 A text based adventure, with the goal of finding treasure.
 
 Note: The code for this game is a work in progress.
-      At this time the only way to play the game is to open the .jar file through the command prompt window.
-      In the future, extra content will be added, including a User Interface which will make the game accessable outside of the command prompt.
+      This latest version of the game includes a Graphic User Interface.  To play simply download and open the TreasureHunt.jar file. You will need to have Java loaded on your computer.
+      Please return in the future to view extra content as it is added.
       
       
-This game is text based, so the computer will write messages to you and you will tyoe commands into the computer.
+This game is text based, so the computer will write messages to you and you will type commands into the computer.
 The program is designed to understand simple commands in English, so try not to be too fancy.
     For example:  "go north", "walk to the north", and "head towards the north" are all acceptable.
                   But, "quickly walk north" or "head northwards quietly" will not be understood.
