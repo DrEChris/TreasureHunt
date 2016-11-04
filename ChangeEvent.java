@@ -16,6 +16,18 @@ public class ChangeEvent extends Event {
     public boolean alterTrigger;
     public String newTrigger;
     
+    /**
+     *
+     * @param eventName
+     * @param eventOdds
+     * @param eventMessage
+     * @param eventTrigger
+     * @param targetEvent
+     * @param oddsChange
+     * @param oddsNew
+     * @param triggerChange
+     * @param triggerNew
+     */
     public ChangeEvent (String eventName, double eventOdds, String eventMessage, 
             String eventTrigger, Event targetEvent, boolean oddsChange, double oddsNew, 
             boolean triggerChange, String triggerNew) {

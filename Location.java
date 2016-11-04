@@ -42,6 +42,7 @@ public class Location {
         public ArrayList<String> conversions = new ArrayList();
         public Map<String, Location> climbList = new HashMap();
         public Map<String, Double> climbOdds = new HashMap();
+        public Map<String, String> itemDesc = new HashMap();
         
         
         
@@ -136,7 +137,14 @@ public class Location {
 
             //Item checker
             for(Item x : itemArray){
-                if (x.visable == true && !x.name.equals("empty")) {
+                boolean spec = false;
+                for(Map.Entry<String, String> y : itemDesc.entrySet()){
+                    if(x.name.equals(y.getKey())){
+                        spec = true;
+                        inventory.display(y.getValue());
+                    }
+                }
+                if (x.visable && !x.name.equals("empty") && !spec) {
                     inventory.display("There is a" + x.description + " here.");
                 }
             }
@@ -150,7 +158,11 @@ public class Location {
                 inventory.display("What do you do?: ");
                 //String user_command = user_input.nextLine();
                 String user_command = inventory.gui.getCommand();
-                translate (user_command.toLowerCase());
+                inventory.display(user_command);
+                if(!user_command.equals("")){
+                    translate (user_command.toLowerCase());
+                }
+                
             }
         }
         
@@ -212,6 +224,7 @@ public class Location {
                 case "get":
                 case "pick":
                 case "take":
+                case "grab":
                     this.pickUp(secondWord);
                     break;
                 case "drop":
@@ -235,6 +248,16 @@ public class Location {
                     inventory.display("You have stopped the code.");
                     this.move(inventory.up, inventory.upWords);
                     break;
+                case "teleport":
+                    boolean none = true;
+                    for(Event x : eventArray){
+                        if(x.trigger.startsWith("teleport") && secondWord.endsWith(x.trigger.substring(9))){
+                            none = false;
+                            x.activate(inventory);
+                        }
+                    }
+                    if(none){inventory.display("I don't understand.  Please try again.");}
+                    break;
                 default:
                     inventory.display("I don't understand.  Please try again.");
                     break;
@@ -255,38 +278,53 @@ public class Location {
                     break;
                 }
             }
+            if(secondWord.equals("forward") || secondWord.equals("forwards")){
+                to = inventory.gps.facing;
+            }
+            if(secondWord.equals("back") || secondWord.equals("backwards")){
+                to = "back";
+            }
             Location place;
             String text;
             switch(to){
                 case "north":
                     place = this.north;
                     text = this.northWords;
+                    inventory.gps.facing = "north";
                     this.move(place, text);
                     break;
                 case "south":
                     place = this.south;
                     text = this.southWords;
+                    inventory.gps.facing = "south";
                     this.move(place, text);
                     break;
                 case "east":
                     place = this.east;
                     text = this.eastWords;
+                    inventory.gps.facing = "east";
                     this.move(place, text);
                     break;
                 case "west":
                     place = this.west;
                     text = this.westWords;
+                    inventory.gps.facing = "west";
                     this.move(place, text);
                     break;
                 case "up":
                     place = this.up;
                     text = this.upWords;
+                    inventory.gps.facing = "up";
                     this.move(place, text);
                     break;
                 case "down":
                     place = this.down;
                     text = this.downWords;
+                    inventory.gps.facing = "down";
                     this.move(place, text);
+                    break;
+                case "back":
+                    this.move(inventory.gps.previousLoc, "You head back the way you came.");
                     break;
                 default:
                     boolean none = true;
@@ -336,63 +374,69 @@ public class Location {
                 }
             }
             if(climbFound){
-                inventory.display("You investigate the climb.");
-                if (odds > 0.8){
-                    inventory.display("This climb looks fairly safe.  You should be able to do it.");
+                if(odds == 1) {
+                    this.move(place, "What an easy climb.");
                 }
-                else if (odds > 0.5){
-                    inventory.display("This climb looks tough, but you can probably make it.");
-                }
-                else if (odds > 0.3){
-                    inventory.display("This climb looks dangerous, I wouldn't do it.");
-                }
-                else {
-                    inventory.display("There is no way you'll make this climb... don't do it!");
-                }
-                inventory.display("Do you still wish to make the climb?");
-        
-                //Scanner user_input = new Scanner (System.in);
-                inventory.display("yes or no: ");
-                String user_command = inventory.gui.getCommand();
-                switch (user_command.toLowerCase()){
-                    case "yes":
-                    case "y":
-                    case "yup":
-                    case "sure":
-                        inventory.display("You start to climb.");
-                        if(odds >= Math.random()){
-                            String text;
-                            if (odds > 0.8){
-                                text = "You easily make the climb.";
-                            }
-                            else if (odds > 0.5){
-                                text = "With a little effort you make the climb, despite a few dangerous spots.";
-                            }
-                            else if (odds > 0.3){
-                                text = "You almost fell a few times, but you made it.";
+                else{
+                    inventory.display("You investigate the climb.");
+                    if (odds > 0.8){
+                        inventory.display("This climb looks fairly safe.  You should be able to do it.");
+                    }
+                    else if (odds > 0.5){
+                        inventory.display("This climb looks tough, but you can probably make it.");
+                    }
+                    else if (odds > 0.3){
+                        inventory.display("This climb looks dangerous, I wouldn't do it.");
+                    }
+                    else {
+                        inventory.display("There is no way you'll make this climb... don't do it!");
+                    }
+                    inventory.display("Do you still wish to make the climb?");
+
+                    //Scanner user_input = new Scanner (System.in);
+                    inventory.display("yes or no: ");
+                    String user_command = inventory.gui.getCommand();
+                    inventory.display(user_command);
+                    switch (user_command.toLowerCase()){
+                        case "yes":
+                        case "y":
+                        case "yup":
+                        case "sure":
+                            inventory.display("You start to climb.");
+                            if(odds >= Math.random()){
+                                String text;
+                                if (odds > 0.8){
+                                    text = "You easily make the climb.";
+                                }
+                                else if (odds > 0.5){
+                                    text = "With a little effort you make the climb, despite a few dangerous spots.";
+                                }
+                                else if (odds > 0.3){
+                                    text = "You almost fell a few times, but you made it.";
+                                }
+                                else {
+                                    text = "Someone must be looking out for you.\n"
+                                        + "There is no reason you should have made that climb, but somehow you did.";
+                                }
+
+                                this.move(place, text);
                             }
                             else {
-                                text = "Someone must be looking out for you.\n"
-                                    + "There is no reason you should have made that climb, but somehow you did.";
+                                inventory.display("You fall and break your neck. \n \n");
+                                this.move(inventory.up, inventory.upWords);
                             }
-                            
-                        this.move(place, text);
-                        }
-                        else {
-                            inventory.display("You fall and break your neck. \n \n");
-                            this.move(inventory.up, inventory.upWords);
-                        }
-                        break;
-                    case "no":
-                    case "n":
-                    case "nope":
-                        inventory.display("You decide not to make the climb.");
-                        
-                        break;
-                    default:
-                        inventory.display("I don't understand");
-                        
-                        break;
+                            break;
+                        case "no":
+                        case "n":
+                        case "nope":
+                            inventory.display("You decide not to make the climb.");
+
+                            break;
+                        default:
+                            inventory.display("I don't understand");
+
+                            break;
+                    }
                 }
             }
             else {
@@ -417,6 +461,7 @@ public class Location {
                 //Scanner user_input = new Scanner (System.in);
                 inventory.display("What do you want to get?: ");
                 String user_command = inventory.gui.getCommand();
+                inventory.display(user_command);
                 secondWord = user_command.toLowerCase();
             }
             int itemSpot = -1;
@@ -511,7 +556,22 @@ public class Location {
         }
         
         public void search(String secondWord){
-            if (secondWord.endsWith("inventory")){
+            if(secondWord.equals("empty") || secondWord.endsWith("around")){
+                inventory.display(description);
+                for(Item x : itemArray){
+                    boolean spec = false;
+                    for(Map.Entry<String, String> y : itemDesc.entrySet()){
+                        if(x.name.equals(y.getKey())){
+                            spec = true;
+                            inventory.display(y.getValue());
+                        }
+                    }
+                    if (x.visable && !x.name.equals("empty") && !spec) {
+                        inventory.display("There is a" + x.description + " here.");
+                    }
+                }
+            }
+            else if (secondWord.endsWith("inventory")){
                 inventory.checkInventory();
             }
             else if (this.itemCheck(secondWord)){
@@ -542,7 +602,7 @@ public class Location {
                 
                 for(Event x : eventArray){
                     if(x.trigger.length() > 6){
-                        if(x.trigger.substring(0, 5).equals("search") && secondWord.endsWith(x.trigger.substring(6))){
+                        if(x.trigger.substring(0, 6).equals("search") && secondWord.endsWith(x.trigger.substring(7))){
                             notFound = false;
                             x.activate(inventory);
                         }
@@ -569,16 +629,34 @@ public class Location {
                 if(x instanceof Use && secondWord.endsWith(x.trigger)){
                     noUse = false;
                     
-                    x.activate(inventory);
+                    if(x.odds >= Math.random()){
+                        x.activate(inventory);
+                    }
+                    break;
+                }
+                else if(x.trigger.substring(0, 3).equals("use") && secondWord.endsWith(x.trigger.substring(4))){
+                    noUse = false;
+                    if(x.odds >= Math.random()){
+                        x.activate(inventory);
+                    }
                     break;
                 }
                 else{
                     for(String aka : x.aliasSet){
-                        if(aka.substring(0, 2).equals("go") && secondWord.endsWith(aka.substring(3))){
+                        if(aka.substring(0, 3).equals("use") && secondWord.endsWith(aka.substring(4))){
                             noUse = false;
-                            x.activate(inventory);
+                            if(x.odds >= Math.random()){
+                                x.activate(inventory);
+                            }
                         }
                     }
+                }
+            }
+            for(Event x : inventory.eventArray){
+                if(x instanceof Use && secondWord.endsWith(x.trigger)){
+                    noUse = false;
+                    x.activate(inventory);
+                    break;
                 }
             }
             if (noUse){
@@ -594,6 +672,12 @@ public class Location {
                 }
             }
         }
+        
+        public void altDesc(String item, String description){
+            itemDesc.put(item, description);
+        }
+        
+        
 
                 
     }

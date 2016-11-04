@@ -46,6 +46,8 @@ public class Inventory extends Location {
     
     public void display (String text) {
         gui.outputDisp.append(text + "\n");
+        int length = gui.outputDisp.getText().length();
+        gui.outputDisp.setCaretPosition(length);
         System.out.println(text);
     }
     
@@ -55,6 +57,7 @@ public class Inventory extends Location {
     public class Monitor {
         public Location presentLoc;
         public Location previousLoc;
+        public String facing = "south";
         public int stage = 1;
         
         

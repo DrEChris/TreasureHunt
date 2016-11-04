@@ -29,13 +29,13 @@ public class TreasureHunt {
         Location blankSpace = new Location("blank Space", -2, "A white room with no doors or windows", 0, 0);
         
         //Create player's Inventory
-        Inventory inventory = new Inventory("in you're backpack", -1, "The backpack where you keep your things", 0, 7);
+        Inventory inventory = new Inventory("in you're backpack", -1, "The backpack where you keep your things", 1, 7);
         inventory.makeUp(deadCell, "");
         //Location 1 "road"
         Location road = new Location("You are on the road", 1, "You are on a dirt road that runs north and south. \n"
                 + "The road is bordered on the east side by thick woods that run off in either direction as far as you can see. \n"
                 + "On the west side of the road a clearing leads off towards a hill. \n"
-                + "In that clearing stands a well made of stone and wood.", 0, 5);
+                + "In that clearing stands a well made of stone and wood.", 1, 5);
         
         
         //Loactaion 2 "Wishing Well"
@@ -54,7 +54,7 @@ public class TreasureHunt {
         Location seaCliff = new Location("You are overlooking the sea cliffs", 4, "You are at the edge of a cliff overlooking the ocean. \n"
                 + "Far down below you at the base of the cliff you can see a sandy beach. \n"
                 + "You can follow the cliffs to the south or to the north where a lighthouse stands \n"
-                + "Oppisett the cliffs towards the east is a lonely hill top.", 2, 5);
+                + "Opposite the cliffs towards the east is a lonely hill top.", 2, 5);
         
         //Location 5 woodsEdge
         Location woodsEdge = new Location("You are at the edge of woods", 5, "You are at the edge of a deep dark woods. \n"
@@ -76,7 +76,7 @@ public class TreasureHunt {
         //Location 9 brokenBridge
         Location brokenBridge = new Location("You are at the broken bridge", 9, "You are on the north side of a mighty river that runs from east to west. \n"
                 + "A dirt road leads up to the river from the north to what used to be a bridge. \n"
-                + "It appears that the bridge was destroyed in a storm leaving the bridge uncrossable.", 0, 5);
+                + "It appears that the bridge was destroyed in a storm leaving the bridge uncrossable.", 1, 5);
         
         //Location 10 Town
         Location town = new Location("You're in town", 10, "You have arrived at a small town of cute wooden buildings paved in cobblestones.", 0, 0);
@@ -84,11 +84,11 @@ public class TreasureHunt {
         //Location 11 Waterfall - top
         Location waterfallTop = new Location("You are at the top of the waterfall", 11, "You are at a large and powerful waterfall. \n"
                 + "A mighty river flows in from the east and pours over the cliffs that extend "
-                + "off to the north.", 0, 5);
+                + "off to the north.", 1, 5);
         
         //Location 12 Mine Entrance
         Location mineEntrance = new Location("You are at the entrance to a mine", 12, "You are at an excavated gully along the side of the river. \n"
-                + "In the middle of the excavation is the entrance to an old abandoned mine.", 0, 5);
+                + "In the middle of the excavation is the entrance to an old abandoned mine.", 1, 5);
         
         //Location 13 Beach
         Location beach = new Location("You are on a sandy beach", 13, "You are are on a big sandy beach at the base of a towering cliff. \n"
@@ -97,7 +97,7 @@ public class TreasureHunt {
         
         //Location 14 Shipwreck
         Location shipWreck = new Location("You stand in front of a ship wreck", 14, "A ship has run a ground on some rocks here! \n"
-                + "The ship blocks you from going north along the beach, but you could probably "
+                + "The ship blocks you from going north along the beach, but you could probably \n"
                 + "climb onto the deck and explore the wreck. \n"
                 + "You can also head south along the beach.", 0, 5);
         
@@ -109,10 +109,10 @@ public class TreasureHunt {
         
         //Location 16 Lagoon
         Location lagoon = new Location("You are at the lagoon", 16, "You stand on the north side of a large lagoon that is fed by a powerful waterfall. \n"
-                + "There is a steep drop into the lagoon covered in slippery jagged rocks "
-                + "that prevents you from going south. \n"
-                + "To the north is the beach and to the east a small footpath leads around the "
-                + "lagoon towards the waterfall.", 0, 5);
+                + "There is a steep drop into the lagoon covered in \n"
+                + "slippery jagged rocks that prevents you from going south. \n"
+                + "To the north is the beach and to the east \n"
+                + "a small footpath leads around the lagoon towards the waterfall.", 0, 5);
         
         //Location 17 Under the Waterfall
         Location waterfallBottom = new Location("You are under the waterfalls", 17, "You are in a little carved out alcove under the waterfall. "
@@ -144,7 +144,7 @@ public class TreasureHunt {
         //Location 22 Smugglers Treasure room
         Location smugglersTrove = new Location("You are in the smugglers treasure trove", 22, "You come around a bend in the small cavern "
                 + "and find yourself in a teasure room. \nThere are two treasure chests on the floor. \n"
-                + "A small passage leads out to the west.", 2, 6);
+                + "A small passage leads out to the west.", 3, 6);
         
         //Location 23 LightHouse
         Location lightHouse = new Location("You are outside the light house", 23, "You are outside an abandoned light house. \n"
@@ -168,7 +168,7 @@ public class TreasureHunt {
         
         //Location 27 Ship Deck Aft
         Location aftDeck = new Location("The aft part of the deck", 27, "You are on the aft deck of a ship that has run aground.\n"
-                + "A set of stairs leads up to raised helm and another leads down to the shadowy deck below. \n"
+                + "A set of stairs leads up to raised helm and another leads down to the shadowy hold below. \n"
                 + "Between them is a door. The main deck lies to the east.", 0, 5);
         
         //Location 28 Crows Nest
@@ -177,13 +177,19 @@ public class TreasureHunt {
                 + "You have a great view for miles around.  The only way down is to climb.", 0, 5);
         
         //Location 29 Helm
-        Location helm = new Location("The helm", 29, "The helm", 0, 5);
+        Location helm = new Location("The helm", 29, "You are on the raised helm of the ship.\n"
+                + "To the east stairs run down on to the main deck. Waves crash against the side of the ship all around you.\n"
+                + "There is a large wheel mounted in the center, to steer the ship.", 0, 5);
         
         //Location 30 Flooded Hold
-        Location floodedHold = new Location("The flooded hold", 30, "You are in the flooded hold.", 0, 10);
+        Location floodedHold = new Location("The flooded hold", 30, "You are in the large hold of the ship.\n"
+                + "The hold has flooded and most of it is underwater. There are stairs leading back up to the deck.", 0, 10);
         
         //Location 31 Captains Quarters
-        Location captainsQuarters = new Location("The captains quarters", 31, "You are in the captains quarters", 0, 3);
+        Location captainsQuarters = new Location("The captains quarters", 31, "You are in the captains quarters./n"
+                + "The room is in some disarray, with papers strewn all over the floor.\n"
+                + "Bookshelves line one wall and a sleeping cot is built into the other.\n"
+                + "There is a writing desk, lit by windows on the west end of the room and a door on the east.", 5, 3);
         
         
         
@@ -195,6 +201,9 @@ public class TreasureHunt {
         road.makeEast(woodsEdge, "You leave the trail and head into the woods");
         road.makeException("woods", "east");
         road.makeException("well", "west");
+        FastTravel teleportBeach = new FastTravel("teleport to beach", 1, "Do you wish to teleport"
+                + " to the beach?", "teleport beach", "zzzzp", "", beach);
+        road.eventArray[0] = teleportBeach;
         //Wishing Well
         well.makeNorth(woodsEdge, "You head north into the woods.");
         well.makeSouth(woodsEdge, "You head south into the woods.");
@@ -231,11 +240,13 @@ public class TreasureHunt {
         woodsEdge.makeWest(road, "You head out of the woods, towards the road.");
         woodsEdge.makeEast(deepWoods, "You head deeper into the woods.");
         woodsEdge.makeException("road", "west");
+        woodsEdge.makeException("woods", "east");
         //Deep Woods
         deepWoods.makeNorth(woodsLost, "You head deeper into the woods.");
         deepWoods.makeSouth(woodsLost, "You head deeper into the woods");
         deepWoods.makeWest(woodsEdge, "You head towards the light and the edge of the woods.");
         deepWoods.makeEast(woodsLost, "You head deeper into the woods.");
+        deepWoods.makeException("woods", "east");
         //Woods Lost
         woodsLost.makeNorth(woodsLost, "You head in the direction you think is North.");
         woodsLost.makeSouth(woodsLost, "You head in the direction you think is South.");
@@ -270,7 +281,7 @@ public class TreasureHunt {
         waterfallTop.makeDown(waterfallTop, "There is no way you could get down those falls alive...");
         waterfallTop.makeException("cliffs", "north");
         //Mine Entrance
-        mineEntrance.makeSouth(mineEntrance, "The river blocks your way north and it is quite uncrossable.");
+        mineEntrance.makeSouth(mineEntrance, "The river blocks your way south and it is quite uncrossable.");
         mineEntrance.makeWest(brokenBridge, "You head west along the river.");
         mineEntrance.makeEast(mineEntrance, "You head down into the mine. \n"
                 + "There is a sign that say 'Mine under construction, please come back'");
@@ -335,6 +346,7 @@ public class TreasureHunt {
         //Light House Room
         lightHouseRoom.makeUp(lightHouseTower, "You climb the stairs up to the top of the tower.");
         lightHouseRoom.makeException("stairs", "up");
+        lightHouseRoom.makeException("tower", "up");
         lightHouseRoom.makeClimb("stairs", lightHouseTower, 1.0);
         FastTravel exitLightHouse = new FastTravel("Leave LightHouse", 1, "Are you done exploring"
                 + " the lighthouse?", "go outside", "You leave the lighthouse", "You stay in the lighthouse", lightHouse);
@@ -348,11 +360,11 @@ public class TreasureHunt {
         lightHouseTower.makeException("stairs", "down");
         //Ship Wreck
         shipWreck.makeSouth(beach, "You head south towards the beach");
-        shipWreck.makeClimb("ship", shipDeck, 0.6);
+        shipWreck.makeClimb("ship", shipDeck, 0.85);
         shipWreck.makeUp(shipDeck, "climb ship");
         shipWreck.makeException("ship", "up");
         //Ship Deck
-        shipDeck.makeClimb("ship", shipWreck, 0.6);
+        shipDeck.makeClimb("ship", shipWreck, 0.85);
         shipDeck.makeDown(shipWreck, "climb ship");
         shipDeck.makeWest(aftDeck, "You head west towards the aft end of the ship.");
         shipDeck.makeClimb("nest", crowsNest, 0.75);
@@ -361,11 +373,36 @@ public class TreasureHunt {
         shipDeck.makeUp(crowsNest, "climb nest");
         //Aft Desk
         aftDeck.makeEast(shipDeck, "You head east towards the front of the ship.");
+        aftDeck.makeWest(captainsQuarters, "You open the door and enter the Captains Quarters.");
+        aftDeck.makeUp(helm, "You climb up to the helm.");
+        aftDeck.makeDown(floodedHold, "You climb down the stairs into the dark hold.");
+        aftDeck.makeException("upstairs", "up");
+        aftDeck.makeException("up the stairs", "up");
+        aftDeck.makeException("helm", "up");
+        aftDeck.makeException("downstairs", "down");
+        aftDeck.makeException("down the stairs", "down");
+        aftDeck.makeException("hold", "down");
+        aftDeck.makeException("door", "west");
         //Crows Nest
         crowsNest.makeClimb("deck", shipDeck, 0.75);
         crowsNest.makeClimb("mast", shipDeck, 0.75);
         crowsNest.makeClimb("ladder", shipDeck, 0.75);
         crowsNest.makeDown(shipDeck, "climb deck");
+        //Helm
+        helm.makeEast(aftDeck, "You climb down the stairs to the main deck.");
+        helm.makeDown(aftDeck, "You climb down the stairs to the main deck.");
+        helm.makeException("deck", "east");
+        helm.makeException("downstairs", "down");
+        helm.makeException("down the stairs", "down");
+        //Flooded Hold
+        floodedHold.makeUp(aftDeck, "You climb up out of the hold.");
+        floodedHold.makeException("upstairs", "up");
+        floodedHold.makeException("up the stairs", "up");
+        floodedHold.makeException("deck", "up");
+        //Captains Quarters
+        captainsQuarters.makeEast(aftDeck, "You head through the door to the deck.");
+        captainsQuarters.makeException("door", "east");
+        captainsQuarters.makeException("deck", "east");
         
         
          //Items
@@ -395,14 +432,23 @@ public class TreasureHunt {
         Item goldScepter = new Item("gold scepter", " bejewled golden "
                 + "scepter", 150, true, "none", "You wave the golden scepter and make proclamations.");
         
-        Item mushrooms = new Item("mushrooms", " bunch of toadstool mushrooms.", 1, true, "none", "You taste a peice of mushroom. \n"
+        Item mushrooms = new Item("mushrooms", " bunch of toadstool mushrooms", 1, true, "none", "You taste a peice of mushroom. \n"
                 + "Yuck!");
         
-        Item wildFlowers = new Item("wild flowers", " bunch of pretty flowers.", 1, true, "none", "You"
+        Item wildFlowers = new Item("wild flowers", " bunch of pretty flowers", 1, true, "none", "You"
                 + " stop to smell the flowers. \nHow nice.");
         
-        Item pinecones = new Item("pinecone", " nice large pinecone.", 1, true, "none", "You try to count the "
+        Item pinecones = new Item("pinecone", " nice large pinecone", 1, true, "none", "You try to count the "
                 + "nubs on the pinecone and get your hands sticky.");
+        
+        Item compass = new Compass("compass", " shiney golden compass", 75, true, "none", "none");
+        captainsQuarters.itemArray[0] = compass;
+        captainsQuarters.altDesc("compass", "There is a shiney golden compass sitting on the desk.");
+        
+        Item barrel = new Item("barrel", " plain wooden barrel", 10, true, "none", "");
+        floodedHold.itemArray[0] = barrel;
+        floodedHold.altDesc("barrel", "An empty barrel is floating in the water.");
+        brokenBridge.itemArray[1] = barrel;
         
         
         //Events
@@ -436,7 +482,7 @@ public class TreasureHunt {
                 + "make climbing the well almost impossible.", "get rope", wellTOff, wellBOff);
         well.eventArray[1] = ropeOffWell;
         
-        //Lost in the go woods events
+        //Lost in the woods events
         ClearItems freshWoods = new ClearItems("Refresh the woods", 1, "None", "arrival");
         woodsLost.eventArray[0] = freshWoods;
         LoadItem mushroomsHere = new LoadItem("Mushrooms in woods", 0.2, "There are mushrooms growing here.", "arrival", 0);
@@ -468,22 +514,7 @@ public class TreasureHunt {
         treeTops.eventArray[0] = seeTown;
         
         //Sea cliff events
-        /**Climb climbCliffs = new Climb("Climb the cliffs", 0.25, "Would you like to climb "
-                + "the steep cliffs?", "cliff", beach, seaCliff);
-        seaCliff.eventArray[0] = climbCliffs;
-        beach.eventArray[0] = climbCliffs;
-        
-        ChangeEvent ropeClimbCliff = new ChangeEvent("ropeClimb", 1, "That rope will make climbing the cliff much easier... "
-                + "and less dangerous.", "use rope", climbCliffs, true, 0.90, false, "none");
-        seaCliff.eventArray[1] = ropeClimbCliff;
-        
-        Use ropeOnCliff = new Use("TieRope", 1, "You tie the rope to the top of the cliff. \n"
-                + "It hangs down almost to the bottom.", "rope", rope, ropeClimbCliff, true, "cliff");
-        seaCliff.eventArray[2] = ropeOnCliff;
-        
-        ChangeEvent ropeOffCliff = new ChangeEvent("ropeTake", 1, "Taking the rope will "
-                + "make climbing the cliffs near impossible.", "get rope", climbCliffs, true, 0.25, false, "none");
-        seaCliff.eventArray[3] = ropeOffCliff;*/
+       
         ChangeLocation cliffTOn = new ChangeLocation("tie rope to the cliff top", 1, "Now the rope will let you"
                 + " climb down the cliff.", "none", seaCliff, "climb", "odds");
         ChangeLocation cliffBOn = new ChangeLocation("tie rope to the cliff top", 1, "", "none", beach, "climb", "odds");
@@ -509,6 +540,22 @@ public class TreasureHunt {
                 + "make climbing the cliff almost impossible.", "get rope", cliffTOff, cliffBOff);
         seaCliff.eventArray[1] = ropeOffCliff;
         
+        //Waterfall Top events
+        FastTravel barrelRide = new FastTravel("Over the falls", 1, "Do you want "
+                + "to use the barrel to cross the river?", "use barrel", 
+                "You hop in the barrel and start paddling across.\n"
+                        + "But the river's current is too strong, \n "
+                        + "and it quickly pulls you down river and over the edge of a waterfall.\n"
+                        + "When you wake up you are lying on some rocks at the edge of a lagoon. \n"
+                        + "You pull yourself up and look around.", 
+                "Might be dangerous, better stay on dry land.", lagoon);
+        Use crossWithBarrel = new Use("cross river in barrel", 1, "The barrel floats and you fit in it.\n"
+                + "Maybe you can use it to cross the river.", 
+            "barrel", barrel, barrelRide, true, "dante");
+        brokenBridge.eventArray[0] = crossWithBarrel;
+        waterfallTop.eventArray[0] = crossWithBarrel;
+        mineEntrance.eventArray[0] = crossWithBarrel;
+        
         
         //smugglers trove events
         LoadItem smugglersChest = new LoadItem("Smugglers Treasure Chest", 1, "You open the treasure chest and"
@@ -517,11 +564,35 @@ public class TreasureHunt {
         smugglersChest.fillStash(ruby);
         smugglersChest.fillStash(emerald);
         smugglersChest.fillStash(sapphire);
-        smugglersChest.fillStash(goldScepter);
+        
         Use usePirateKeys = new Use("use pirate keys", 1, "You use the keys to unlock the chests. \n"
                 + "The first one is already unlocked and empty, but the second is still full.", 
             "keys", pirateKeys, smugglersChest, false, "none");
         smugglersTrove.eventArray[1] = usePirateKeys;
+        Event lockedChest = new Event("locked Chest", 1, "The chest is locked. "
+                + "The key hole is old and rusted.", "search chest");
+        smugglersTrove.eventArray[2] = lockedChest;
+        
+        //Captains Quarters events
+        Event dirtyBook = new Event("dirty book", 1, "You notice that one of the books has dirty finger"
+                + "prints on it.", "search bookcase");
+        captainsQuarters.eventArray[0] = dirtyBook;
+        dirtyBook.aka("search books");
+        dirtyBook.aka("search shelves");
+        
+        LoadItem pirateChest = new LoadItem("Pirate Treasure Chest", 1, "You open "
+                + "the treasure chest and look inside.", "open chest", 500);
+        pirateChest.fillStash(goldScepter);
+        captainsQuarters.eventArray[3] = pirateChest;
+        
+        Use usePirateKeys2 = new Use("use pirate keys", 0, "You use the keys to "
+                + "unlock the chest.", "keys", pirateKeys, pirateChest, false, "none");
+        captainsQuarters.eventArray[2] = usePirateKeys2;
+        
+        ChangeEvent secretTreasure = new ChangeEvent("secret treasure", 1, "You grab the book, but when you pull on it a part of the bookshelve swings open.\n"
+                + "Behind it is a secret chamber with a treasure chest in it.", "get book", usePirateKeys2, true, 1, false, "use keys");
+        captainsQuarters.eventArray[1] = secretTreasure;
+        captainsQuarters.eventArray[4] = lockedChest;
         
         
         //Encounters

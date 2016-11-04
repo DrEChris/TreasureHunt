@@ -16,6 +16,17 @@ public class Use extends Event {
     public Boolean drop;
     public String dropSpot;
     
+    /**
+     *
+     * @param eventName
+     * @param eventOdds
+     * @param eventMessage
+     * @param eventTrigger
+     * @param usedItem
+     * @param whatHappens
+     * @param leaveItem
+     * @param dropWhere
+     */
     public Use(String eventName, double eventOdds, String eventMessage, 
             String eventTrigger, Item usedItem, Event whatHappens, 
             Boolean leaveItem, String dropWhere) {
